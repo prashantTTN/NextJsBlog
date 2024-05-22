@@ -1,0 +1,28 @@
+.blogData{
+    min-height: calc(100vh - 300px);
+}
+
+.backBtn{
+    margin: 1rem 5rem 0 5rem;
+    display: block;
+}
+
+.description{
+    margin : 2rem 5rem;
+}
+
+.authorName{
+    margin : 1rem 5rem;
+}
+
+.h1 {
+    margin-bottom: 1rem;
+}
+
+.contentWrapper {
+    min-height: 20vh;
+}
+
+.dateSpan {
+    margin-top: 1rem;
+}
