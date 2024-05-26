@@ -19,6 +19,7 @@ const MENU_LIST = [
   { text: "Home", href: "/" },
   { text: "About Us", href: "/about" },
   { text: "Blog", href: "/blog" },
+  { text: "Add Blog", href: "/addBlog" },
 ];
 const Navbar = () => {
   const [navActive, setNavActive] = useState(null);
