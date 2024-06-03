@@ -1,10 +1,15 @@
-import Image from "next/image";
+// "use client"
+// import Image from "next/image";
 import styles from "../page.module.css";
-import blogStyles from "./blog.module.css";
-import Layout from "../layout";
+// import blogStyles from "./blog.module.css";
+// import Layout from "../layout";
 import Cards from "../components/Cards";
+import { fetchData } from "../components/commonUtils";
 
-export default function Blog() {
+export default async function Blog() {
+  let blogData =  await fetchData('http://localhost:3000/api/blog');
+  const blogs = !!blogData.blogs ? blogData.blogs : [];
+  // console.log('blogs======', blogs);
   return (
     // <Layout>
       <div className={`${styles.main} blogPage`}>
@@ -13,7 +18,7 @@ export default function Blog() {
             Welcome to the Blog Listing Page&nbsp;
           </p>
         </div>
-        <Cards />
+        <Cards blogs = {blogs} />
       </div>
     // </Layout>
   );

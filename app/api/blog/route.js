@@ -11,12 +11,12 @@ export async function POST(request) {
   return NextResponse.json({ message: "Blog Created" }, { status: 201 });
 }
 
-// export async function GET() {
-//   await connectMongoDB();
-//   const blogs = await Blog.find();
-//   console.log('blogs===', blogs);
-//   return NextResponse.json({ blogs });
-// }
+export async function GET() {
+  await connectMongoDB();
+  const blogs = await Blog.find();
+  // console.log('blogs===', blogs);
+  return NextResponse.json({ blogs });
+}
 
 // export async function DELETE(request) {
 //   const id = request.nextUrl.searchParams.get("id");
