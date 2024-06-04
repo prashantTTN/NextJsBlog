@@ -44,12 +44,12 @@ export default function AddBlog() {
     <form onSubmit={handleSubmit} className={`flex flex-col gap-3 ${addBlogStyles.addBlogForm}`}>
       <input onChange={(e) => setTitle(e.target.value)}
         value={title} className="border border-slate-500 px-8 py-2"
-        type="text" placeholder="Blog Title"
+        type="text" placeholder="Blog Title" maxLength={50}
       />
 
       <input onChange={(e) => setDescription(e.target.value)}
         value={content} className="border border-slate-500 px-8 py-2"
-        type="text" placeholder="Blog Description"
+        type="text" placeholder="Blog Description" maxLength={400}
       />
 
         {/* <input onChange={(e) => setId(e.target.value)}
