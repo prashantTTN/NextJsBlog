@@ -8,26 +8,25 @@ import nextConfig from '../../next.config.mjs';
 export default function AddBlog() {
   const [title, setTitle] = useState("");
   const [content, setDescription] = useState("");
-//   const [id, setId] = useState(0);
+  const [author, setAuthor] = useState("");
 
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!title || !content) {
-      alert("Title and description are required.");
+    if (!title || !content || !author) {
+      alert("Title, description and author are required.");
       return;
     }
 
     try {
-    //   console.log('basePath`', `${process.env.MONGODB_URI}`);
       const res = await fetch(`api/blog`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify({ title, content}),
+        body: JSON.stringify({ title, content, author}),
       });
 
       if (res.ok) {
@@ -52,10 +51,9 @@ export default function AddBlog() {
         type="text" placeholder="Blog Description" maxLength={400}
       />
 
-        {/* <input onChange={(e) => setId(e.target.value)}
-            value={id} className="border border-slate-500 px-8 py-2"
-            type="number" placeholder="Blog Id"
-        /> */}
+      <input onChange={(e) => setAuthor(e.target.value)}  value={author} className="border border-slate-500 px-8 py-2"
+        type="text" placeholder="Blog Author" maxLength={50}
+      />
 
       <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
         Add Blog

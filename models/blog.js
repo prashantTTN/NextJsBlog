@@ -4,7 +4,7 @@ const blogSchema = new Schema(
   {
     title: String,
     content: String,
-    // id : Number
+    author: String
   },
   {
     timestamps: true,
