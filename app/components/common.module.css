@@ -160,3 +160,56 @@ padding: 1rem;
 .readmore:hover i {
     margin: 0 0 0 20px;
 }
+
+.delete {
+    height: 40px;
+    width: 100px;
+    float: left;
+    padding-left: 10px;
+    line-height: 40px;
+    background-color: #dd1212;
+    margin: 0 15px 20px;
+    font-size: 12px;
+    border-radius: 5px;
+}
+  
+.delete:hover {
+    background-color: #9fdf55;
+}
+  
+.delete i {
+    color: #fff;
+    margin-left: 5px;
+    transition: cubic-bezier(0.68, -0.55, 0.27, 01.55) 320ms;
+}
+  
+.delete:hover i {
+    margin: 0 0 0 20px;
+}
+
+.edit {
+    height: 40px;
+    width: 100px;
+    float: left;
+    padding-left: 10px;
+    line-height: 40px;
+    background-color: #8bc34a;
+    margin: 0 15px 20px;
+    font-size: 12px;
+    border-radius: 5px;
+}
+  
+.edit:hover {
+    background-color: #9fdf55;
+}
+  
+.edit i {
+    color: #fff;
+    margin-left: 5px;
+    transition: cubic-bezier(0.68, -0.55, 0.27, 01.55) 320ms;
+}
+  
+.edit:hover i {
+    margin: 0 0 0 20px;
+}
+

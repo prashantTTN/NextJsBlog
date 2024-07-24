@@ -1,8 +1,5 @@
 // "use client"
-// import Image from "next/image";
 import styles from "../page.module.css";
-// import blogStyles from "./blog.module.css";
-// import Layout from "../layout";
 import Cards from "../components/Cards";
 import { fetchData } from "../components/commonUtils";
 

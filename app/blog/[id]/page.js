@@ -1,18 +1,3 @@
-// import Image from "next/image";
-// import styles from "../page.module.css";
-
-// export default function blogDetails() {
-//   return (
-//     <div className={`${styles.main} blogPage`}>
-//       <div className={styles.description}>
-//         <p>
-//           Welcome to the Blog Details Page&nbsp;
-//         </p>
-//       </div>
-//     </div>
-//   );
-// }
-
 'use client'
 
 import { useState, useEffect } from 'react';
@@ -22,12 +7,11 @@ import blogStyles from "../blog.module.css";
 const BlogDetails = ({ params }) => {
     const [blogDetails, setBlogDetails] = useState({});
     const id = params.id;
-    console.log(params);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch(`https://dummyapi.online/api/blogposts/${id}`);
+                const res = await fetch(`http://localhost:3000/api/blog/${id}`);
                 const resData = await res.json();
                 setBlogDetails(resData);
                 console.log('resData===', resData);
@@ -44,14 +28,15 @@ const BlogDetails = ({ params }) => {
 
     return (
         <div className={`${blogStyles.blogData}`}>
+            {console.log('blogDetails===', blogDetails)}
             <Link href= {'/blog'} className={`${blogStyles.backBtn}`}>Back</Link>
             <div className={`${blogStyles.description}`}>
-                <h1 className={`${blogStyles.h1}`}>{blogDetails.title}</h1>
-                <p className={`${blogStyles.contentWrapper}`}>{blogDetails.content}</p>
-                <span className={`${blogStyles.dateSpan}`}>{blogDetails.date_published}</span>
+                <h1 className={`${blogStyles.h1}`}>{blogDetails && blogDetails.topic && blogDetails.topic.title}</h1>
+                <p className={`${blogStyles.contentWrapper}`}>{blogDetails && blogDetails.topic && blogDetails.topic.content}</p>
+                <span className={`${blogStyles.dateSpan}`}>Date Published : {blogDetails && blogDetails.topic && new Date(blogDetails.topic.createdAt).toLocaleDateString()}</span>
             </div>
             <div className={`${blogStyles.authorName}`}>
-                {blogDetails.author}
+                Author : {blogDetails && blogDetails.topic && blogDetails.topic.author}
             </div>
         </div>
     );
