@@ -3,9 +3,12 @@ import Link from "next/link";
 import styles from "../page.module.css";
 import cardStyles from "./common.module.css";
 import { fetchData } from "./commonUtils";
+import { useRouter } from "next/navigation";
+
 
 const Cards = async(props) => {
     const {blogs = []} = props;
+    const router = useRouter();
     // console.log(props , 'props====')
     // console.log('blogs in card===', blogs);
 
@@ -40,6 +43,7 @@ const Cards = async(props) => {
 
             if (res.ok) {
                 console.log('res.ok===', res.ok);
+                router.push("/blog");
             } else {
                 throw new Error("Failed to delete a topic");
             }
